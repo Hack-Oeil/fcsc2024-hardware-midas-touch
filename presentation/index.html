@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="fr">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Les CTFs de Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./assets/css/github.min.css">
+    <script src="./assets/js/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Vérifie si la fenêtre est dans une iframe
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+            // Active la coloration syntaxique :
+            if (window.hljs) {
+                hljs.highlightAll();
+            } else {
+                console.error("Highlight.js non chargé !");
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Challenge #484</h3>
+                            <h2 class="section-title">Midas Touch</h2>
+                            <p>
+                                La société du challenge <code>Soupe MISO</code> a entendu parler d’une fuite de ses
+                                secrets affichés sur l’écran de contrôle… Qu’à cela ne tienne, ils ont décidé de mettre
+                                en place un contrôle d’accès dans la salle de commandes afin de forcer une
+                                identification via PIN avant l’envoi de commandes.
+                                <br /> <br />
+                                Pour ce faire, ils ont ajouté un touch screen capacitif de type
+                                <a target="_blank"
+                                    href="https://cdn-shop.adafruit.com/datasheets/FT6x06_AN_public_ver0.1.3.pdf">FT6206</a>
+                                au
+                                dessus du ILI9341 afin de faire saisir le PIN sur un PINpad virtuel (affiché sur l’écran
+                                TFT avec un layout randomisé pour un maximum de sécurité). Grâce à des fuites de
+                                spécifications, vous apprenez que la bibliothèque
+                                <a target="_blank"
+                                    href="https://github.com/adafruit/Adafruit_FT6206_Library">https://github.com/adafruit/Adafruit_FT6206_Library</a>
+                                est utilisée pour gérer le touch screen. Vous savez aussi que la saisie du PIN se finit
+                                par un “OK”.
+                                <br /> <br />
+                                Comme précédemment, vous avez accès aux fils reliant la board pilotant l’ILI9341 et le
+                                FT6206, avec cette fois-ci une distinction de couleur entre les fils vous permettant
+                                d’avoir deux captures distinctes avec deux analyseurs logiques. Saurez-vous retrouver le
+                                PIN secret permettant de continuer à accéder aux secrets de l’entreprise ?
+                                <br /> <br />
+                                <strong>Note :</strong> le format du flag est <code>FCSC{PIN}</code> où <code>PIN</code>
+                                est le
+                                <code>PIN</code> secret.
+
+                                <br />
+                                <img src="./assets/images/midas_touch.png">
+                            </p>
+                            <h4>Fichier à étudier</h4>
+                            <p>
+                                - midas-touch.tar.gz
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>FCSC 2024</h3>
+                            <h2 class="section-title">Hackropole</h2>
+                            <p class="section-subtitle">
+                                Lien officiel :
+                                <a target="_blank"
+                                    href="https://hackropole.fr/fr/challenges/hardware/fcsc2024-hardware-midas-touch/">FCSC
+                                    2024 -
+                                    Midas Touch
+                                </a>
+                                <br />
+                                Auteur: rbe
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Apprentissage</h3>
+                            <h2 class="section-title">Documentations et Vidéos</h2>
+                            <p class="section-subtitle">
+                                Aucune documentation pour le moment
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Aide</h3>
+                            <h2 class="section-title">Conseils et indices</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Fil sur
+                                    le Discord</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="Remonter en haut de la page" title="Remonter en tête de site"></a>
+    </div>
+</body>
+
+</html>

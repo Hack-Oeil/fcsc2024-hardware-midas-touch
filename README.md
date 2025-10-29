@@ -14,7 +14,7 @@ Comme précédemment, vous avez accès aux fils reliant la board pilotant l’IL
 
 
 
-Fichiers :
+Fichier :
 - [midas-touch.tar.gz](midas-touch.tar.gz)
 
 
